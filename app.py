@@ -44,7 +44,6 @@ class LoginRequest(BaseModel):
 
 @app.post("/login")
 def login(body: LoginRequest):
-  # VULNERABLE CODE - User Input is directly inserted into the SQL query
   query = (
     "SELECT id, username, role FROM users "
     f"WHERE username = '{body.username}' "
